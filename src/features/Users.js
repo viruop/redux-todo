@@ -17,7 +17,7 @@ export const userSlice = createSlice({
     updateNote: (state, action) => {
       state.value.map((user) => {
         if (user.id === action.payload.id) {
-          user.username = action.payload.username;
+          user.note = action.payload.note;
         }
       });
     },

@@ -8,9 +8,9 @@ function App() {
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.users.value);
 
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
-  const [newUsername, setNewUsername] = useState("");
+  const [title, setTitle] = useState("");
+  const [note, setNote] = useState("");
+  const [newNote, setNewNote] = useState("");
 
   return (
     <div  className="App">
@@ -20,7 +20,7 @@ function App() {
           type="text"
           placeholder="Title..."
           onChange={(event) => {
-            setName(event.target.value);
+            setTitle(event.target.value);
           }}
         />
         <br />
@@ -28,17 +28,17 @@ function App() {
           type="text"
           placeholder="Note..."
           onChange={(event) => {
-            setUsername(event.target.value);
+            setNote(event.target.value);
           }}
         />
         <br />
-        <button style={{ backgroundColor:"aliceblue", borderRadius:"10px" , margin:"10px"}}
+        <button style={{ backgroundColor:"aliceblue", borderRadius:"10px" , marginLeft:"45px" , marginTop:"10px"}}
           onClick={() => {
             dispatch(
               addNote({
                 id: userList[userList.length - 1].id + 1,
-                name,
-                username,
+                title,
+                note,
               })
             );
           }}
@@ -50,21 +50,21 @@ function App() {
         {userList.map((user) => {
           return (
             <div>
-              <h1> {user.name}</h1>
-              <h1> {user.username}</h1>
+              <h1> {user.title}</h1>
+              <h1> {user.note}</h1>
               <input
                 style={{marginRight:"8px"}}
                 type="text"
                 placeholder="New Note..."
                 onChange={(event) => {
-                  setNewUsername(event.target.value);
+                  setNewNote(event.target.value);
                 }}
               />
               <button
               style={{marginRight:"8px"}}
                 onClick={() => {
                   dispatch(
-                    updateNote({ id: user.id, username: newUsername })
+                    updateNote({ id: user.id, note: newNote })
                   );
                 }}
               >

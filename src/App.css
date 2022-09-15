@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   background-color: #fee6e3;
+  height: 100vh;
 }
 
 .displayUsers {
@@ -12,10 +13,11 @@
 }
 
 .displayUsers div {
-  width: 400px;
+  width: auto;
   font-style: oblique;
+  color:"#191716";
   background-color: aliceblue;
-  height: 150px;
+  height: auto;
   padding: 20px;
   margin: 20px;
   border-radius: 10px;
